@@ -1,0 +1,609 @@
+/* ===========================================================
+   Cientistas Negros — folha de estilos
+   Paleta: preto, branco, cinza. Tipografia: Fraunces + Inter + IBM Plex Mono
+=========================================================== */
+
+:root{
+  --preto: #121212;
+  --preto-suave: #232323;
+  --branco: #FAFAF8;
+  --cinza-claro: #E6E5E1;
+  --cinza-linha: #D3D2CD;
+  --cinza-medio: #8A8A85;
+  --cinza-escuro: #4A4A46;
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", "Courier New", monospace;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background: var(--branco);
+  color: var(--preto);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{ color: inherit; }
+
+img{ max-width:100%; display:block; }
+
+.container{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Topo / navegação ---------- */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250,250,248,0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--cinza-linha);
+}
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.brand{
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration:none;
+  color: var(--preto);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.brand-mark{
+  width: 10px; height: 10px;
+  background: var(--preto);
+  display:inline-block;
+}
+.brand-logo{
+  height: 44px;
+  width: auto;
+  filter: grayscale(100%) contrast(1.1);
+  transition: filter .3s ease, transform .3s ease;
+}
+.brand:hover .brand-logo{
+  filter: grayscale(0%) contrast(1.1);
+  transform: scale(1.04);
+}
+.nav-links{
+  display:flex;
+  gap: 28px;
+  list-style:none;
+  margin:0; padding:0;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.nav-links a{
+  text-decoration:none;
+  color: var(--cinza-escuro);
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease, color .2s ease;
+}
+.nav-links a:hover, .nav-links a.ativo{
+  color: var(--preto);
+  border-color: var(--preto);
+}
+
+/* ---------- Botão hambúrguer (mobile) ---------- */
+.menu-toggle{
+  display:none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.menu-toggle span{
+  display:block;
+  width: 22px;
+  height: 2px;
+  background: var(--preto);
+  transition: transform .25s ease, opacity .25s ease;
+}
+.menu-toggle[aria-expanded="true"] span:nth-child(1){
+  transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle[aria-expanded="true"] span:nth-child(2){
+  opacity: 0;
+}
+.menu-toggle[aria-expanded="true"] span:nth-child(3){
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  padding: 90px 0 60px;
+  border-bottom: 1px solid var(--cinza-linha);
+}
+.eyebrow{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cinza-escuro);
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.eyebrow::before{
+  content:"";
+  width: 28px; height:1px;
+  background: var(--cinza-escuro);
+  display:inline-block;
+}
+.hero h1{
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 5.4vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0 0 26px;
+  max-width: 16ch;
+}
+.hero p.lead{
+  font-size: 1.15rem;
+  color: var(--cinza-escuro);
+  max-width: 56ch;
+  margin: 0 0 34px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration:none;
+  background: var(--preto);
+  color: var(--branco);
+  padding: 15px 26px;
+  border: 1px solid var(--preto);
+  transition: background .2s ease, color .2s ease;
+  cursor:pointer;
+}
+.btn:hover{ background: var(--branco); color: var(--preto); }
+.btn.secundario{
+  background: transparent;
+  color: var(--preto);
+}
+.btn.secundario:hover{ background: var(--preto); color: var(--branco); }
+
+/* ---------- Hero com imagem de fundo (página inicial) ---------- */
+.hero.hero--fundo{
+  position: relative;
+  overflow: hidden;
+  border-bottom: none;
+  padding: 150px 0 110px;
+}
+.hero-mosaico{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+.hero-mosaico img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(100%) contrast(1.05) brightness(.6) blur(1.5px);
+  transform: scale(1.06); /* disfarça a borda do blur */
+}
+.hero.hero--fundo::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18,18,18,.55) 0%, rgba(18,18,18,.68) 45%, var(--branco) 96%);
+  z-index: 1;
+}
+.hero.hero--fundo .container{
+  position: relative;
+  z-index: 2;
+}
+.hero.hero--fundo .eyebrow,
+.hero.hero--fundo .eyebrow::before{
+  color: var(--branco);
+  background: var(--branco);
+}
+.hero.hero--fundo h1{ color: var(--branco); }
+.hero.hero--fundo p.lead{ color: var(--cinza-claro); }
+.hero.hero--fundo .btn{
+  background: var(--branco);
+  color: var(--preto);
+  border-color: var(--branco);
+}
+.hero.hero--fundo .btn:hover{
+  background: transparent;
+  color: var(--branco);
+  border-color: var(--branco);
+}
+
+/* ---------- Seção genérica ---------- */
+section{ padding: 70px 0; }
+section.linha-topo{ border-top: 1px solid var(--cinza-linha); }
+.titulo-secao{
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  margin: 0 0 12px;
+  max-width: 22ch;
+}
+.subtitulo-secao{
+  color: var(--cinza-escuro);
+  max-width: 62ch;
+  margin: 0 0 44px;
+  font-size: 1.02rem;
+}
+
+/* ---------- Fichas / Índice de razões (home) ---------- */
+.fichas{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--cinza-linha);
+  border: 1px solid var(--cinza-linha);
+}
+.ficha{
+  background: var(--branco);
+  padding: 30px 26px;
+}
+.ficha .tag{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cinza-medio);
+  display:block;
+  margin-bottom: 16px;
+}
+.ficha h3{
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  margin: 0 0 12px;
+}
+.ficha p{
+  color: var(--cinza-escuro);
+  font-size: 0.96rem;
+  margin:0;
+}
+
+/* ---------- Bloco de destaque / citação ---------- */
+.bloco-destaque{
+  border-top: 1px solid var(--preto);
+  border-bottom: 1px solid var(--preto);
+  padding: 46px 0;
+  margin: 10px 0 0;
+}
+.bloco-destaque blockquote{
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 0;
+  max-width: 30ch;
+}
+.bloco-destaque cite{
+  display:block;
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cinza-medio);
+  margin-top: 20px;
+}
+
+/* ---------- Galeria de cientistas ---------- */
+.galeria{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px 32px;
+}
+.cartao{
+  border: 1px solid var(--cinza-linha);
+  background: var(--branco);
+  display:flex;
+  flex-direction: column;
+  position: relative;
+}
+.cartao .foto-wrap{
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow:hidden;
+  background: var(--cinza-claro);
+  border-bottom: 1px solid var(--preto);
+}
+.cartao .foto-wrap img{
+  width:100%; height:100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(100%) contrast(1.05);
+  transition: transform .5s ease, filter .4s ease;
+}
+.cartao:hover .foto-wrap img{
+  transform: scale(1.04);
+  filter: grayscale(0%) contrast(1.05);
+}
+.cartao .aba{
+  position:absolute;
+  top:0; right:0;
+  background: var(--preto);
+  color: var(--branco);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 7px 12px;
+}
+.cartao .corpo{
+  padding: 22px 22px 26px;
+  flex: 1;
+  display:flex;
+  flex-direction: column;
+}
+.cartao .campo{
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cinza-medio);
+  margin: 0 0 8px;
+}
+.cartao h3{
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+.cartao .anos{
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--cinza-medio);
+  margin: 0 0 14px;
+}
+.cartao p.desc{
+  font-size: 0.94rem;
+  color: var(--cinza-escuro);
+  margin: 0;
+  flex: 1;
+}
+
+/* ---------- Vídeos ---------- */
+.videos{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+.video-card iframe{
+  width:100%;
+  aspect-ratio: 16/9;
+  border: 1px solid var(--cinza-linha);
+  filter: grayscale(35%);
+}
+.video-card h4{
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  margin: 14px 0 4px;
+}
+.video-card p{
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cinza-medio);
+  margin:0;
+}
+
+/* ---------- Formulário de contato ---------- */
+.contato-wrap{
+  display:grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 56px;
+  align-items:start;
+}
+@media (max-width: 760px){
+  .contato-wrap{ grid-template-columns: 1fr; }
+}
+.form-grid{
+  display:grid;
+  gap: 20px;
+}
+label{
+  display:block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cinza-escuro);
+  margin-bottom: 8px;
+}
+input, textarea{
+  width:100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--cinza-linha);
+  padding: 10px 2px;
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--preto);
+  outline: none;
+}
+input:focus, textarea:focus{
+  border-bottom-color: var(--preto);
+}
+textarea{ resize: vertical; min-height: 90px; }
+.form-msg{
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--cinza-escuro);
+  margin-top: 16px;
+  display:none;
+}
+.form-msg.mostrar{ display:block; }
+
+/* ---------- Rodapé ---------- */
+footer{
+  border-top: 1px solid var(--cinza-linha);
+  padding: 34px 0;
+  margin-top: 20px;
+}
+footer .container{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  align-items:center;
+}
+footer p{
+  margin:0;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--cinza-medio);
+}
+footer .creditos{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--preto);
+  text-transform: uppercase;
+}
+
+/* ---------- Responsivo ---------- */
+html, body{ overflow-x: hidden; }
+
+@media (max-width: 760px){
+  .fichas{ grid-template-columns: 1fr; }
+  .hero{ padding: 60px 0 40px; }
+  .hero.hero--fundo{ padding: 100px 0 60px; }
+  .hero-mosaico{ grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); }
+
+  .topbar-inner{ position: relative; }
+  .brand{ font-size: 12px; }
+  .brand-logo{ height: 36px; }
+
+  .menu-toggle{ display:flex; }
+
+  .nav-links{
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--branco);
+    border-top: 1px solid var(--cinza-linha);
+    border-bottom: 1px solid var(--cinza-linha);
+  }
+  .nav-links.aberto{ display:flex; }
+  .nav-links li{ width: 100%; }
+  .nav-links a{
+    display:block;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--cinza-linha);
+  }
+  .nav-links a.ativo, .nav-links a:hover{
+    border-color: var(--cinza-linha);
+    background: var(--cinza-claro);
+  }
+}
+
+/* ---------- Animações ---------- */
+.reveal{
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visivel{
+  opacity: 1;
+  transform: none;
+}
+
+/* entrada automática do herói ao carregar a página */
+.hero .eyebrow, .hero h1, .hero p.lead, .hero .btn{
+  opacity: 0;
+  transform: translateY(16px);
+  animation: entrada .7s ease forwards;
+}
+.hero .eyebrow{ animation-delay: .05s; }
+.hero h1{ animation-delay: .16s; }
+.hero p.lead{ animation-delay: .28s; }
+.hero .btn{ animation-delay: .4s; }
+
+@keyframes entrada{
+  to{ opacity: 1; transform: none; }
+}
+
+/* traço do eyebrow "desenhando" da esquerda para a direita */
+.eyebrow::before{
+  width: 0;
+  animation: tracar .5s ease forwards;
+  animation-delay: .5s;
+}
+@keyframes tracar{
+  to{ width: 28px; }
+}
+
+/* aba dos cartões da galeria "escorregando" para dentro */
+.cartao .aba{
+  transform: translateX(6px);
+  opacity: 0;
+  animation: aba-entra .5s ease forwards;
+  animation-delay: .15s;
+}
+@keyframes aba-entra{
+  to{ transform: translateX(0); opacity: 1; }
+}
+
+/* logo com leve entrada girando/aparecendo */
+.brand-logo{
+  animation: logo-entra .6s ease;
+}
+@keyframes logo-entra{
+  from{ opacity: 0; transform: scale(.85) rotate(-4deg); }
+  to{ opacity: 1; transform: scale(1) rotate(0); }
+}
+
+/* ---------- Acessibilidade / foco ---------- */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--preto);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  .reveal, .hero .eyebrow, .hero h1, .hero p.lead, .hero .btn, .cartao .aba, .brand-logo{
+    opacity: 1 !important; transform: none !important;
+  }
+  .eyebrow::before{ width: 28px !important; }
+}
