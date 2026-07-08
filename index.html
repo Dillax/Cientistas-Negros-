@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cientistas Negros — Ciência, Memória e Futuro</title>
+<meta name="description" content="Um arquivo dedicado a cientistas negros que mudaram a história da ciência.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="logo-olavo-bilac.png" alt="Logomarca do Colégio Estadual Olavo Bilac">
+      Cientistas Negros
+    </a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a class="ativo" href="index.html">Início</a></li>
+      <li><a href="cientistas.html">Cientistas</a></li>
+      <li><a href="relacoes.html">Relações Étnico-Raciais</a></li>
+      <li><a href="sobre.html">Sobre o Autor</a></li>
+      <li><a href="cientistas.html#contato">Contato</a></li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  (function () {
+    var botaoMenu = document.getElementById('menu-toggle');
+    var listaNav = document.getElementById('nav-links');
+    if (!botaoMenu || !listaNav) return;
+    botaoMenu.addEventListener('click', function () {
+      var aberto = listaNav.classList.toggle('aberto');
+      botaoMenu.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+    });
+    listaNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        listaNav.classList.remove('aberto');
+        botaoMenu.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+
+<main>
+  <section class="hero hero--fundo">
+    <div class="hero-mosaico" aria-hidden="true">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/George_Washington_Carver_c1910.jpg" alt="" loading="eager">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Katherine_Johnson_at_NASA,_in_1966.jpg" alt="" loading="eager">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mae_Carol_Jemison.jpg" alt="" loading="eager">
+      <img src="https://en.wikipedia.org/wiki/Special:FilePath/Portrait_of_Charles_Drew.jpg" alt="" loading="eager">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Percy_Lavon_Julian_(1899-1975)_portrait.jpg" alt="" loading="eager">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Marie_Maynard_Daly.jpg" alt="" loading="eager">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Patriciabath.jpg" alt="" loading="eager">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Neil_deGrasse_Tyson.jpg" alt="" loading="eager">
+    </div>
+    <div class="container">
+      <p class="eyebrow">Um arquivo de ciência e memória</p>
+      <h1>A ciência tem cor — e ela sempre teve rosto negro.</h1>
+      <p class="lead">Por mais de dois séculos, cientistas negros mudaram a forma como entendemos o espaço, o corpo humano, a matemática e a própria Terra. Muitos desses nomes foram apagados, minimizados ou esquecidos. Este site existe para lembrar — e apresentar — parte dessa história.</p>
+      <a class="btn" href="cientistas.html">Conhecer os cientistas →</a>
+    </div>
+  </section>
+
+  <section class="linha-topo">
+    <div class="container">
+      <h2 class="titulo-secao reveal">Por que isso importa</h2>
+      <p class="subtitulo-secao reveal">Falar sobre cientistas negros não é apenas contar histórias inspiradoras — é corrigir um registro histórico incompleto e abrir caminho para quem vem depois.</p>
+
+      <div class="fichas">
+        <div class="ficha reveal">
+          <span class="tag">Ficha 01 — Apagamento</span>
+          <h3>Um registro incompleto</h3>
+          <p>Durante séculos, pessoas negras enfrentaram barreiras legais e sociais para estudar, publicar e receber crédito por suas descobertas. Muitas contribuições foram atribuídas a outros ou simplesmente não registradas. Reconhecer esses nomes é reescrever a história com mais precisão.</p>
+        </div>
+        <div class="ficha reveal">
+          <span class="tag">Ficha 02 — Representatividade</span>
+          <h3>Ver para acreditar</h3>
+          <p>Crianças e jovens negros que veem cientistas com quem se identificam entendem, na prática, que a ciência também é um lugar seu. Representatividade não é um detalhe: é parte do que decide quem se sente convidado a seguir carreira nas exatas, na medicina ou na pesquisa.</p>
+        </div>
+        <div class="ficha reveal">
+          <span class="tag">Ficha 03 — Ciência plural</span>
+          <h3>Mais vozes, mais perguntas</h3>
+          <p>Times de pesquisa diversos tendem a enxergar problemas de ângulos diferentes. A trajetória de cientistas negros mostra isso na prática: soluções para bancos de sangue, cirurgia ocular, viagens espaciais e agricultura nasceram de perspectivas que quase foram silenciadas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco-destaque reveal">
+    <div class="container">
+      <blockquote>
+        "Comece de onde você está. Use o que você tem. Faça o que você pode."
+        <cite>George Washington Carver, agrônomo e inventor</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 class="titulo-secao reveal">O que você vai encontrar aqui</h2>
+      <p class="subtitulo-secao reveal">Na próxima página reunimos fotos, trajetórias e contribuições de cientistas negros de diferentes épocas e áreas — da agronomia à astrofísica, da química à medicina espacial. Também há vídeos e um espaço para você deixar seu contato.</p>
+      <a class="btn secundario reveal" href="cientistas.html">Ver a galeria de cientistas →</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>Arquivo educativo · Ciência e memória negra</p>
+    <p class="creditos">Site desenvolvido pelos alunos do 3° A — Olavo Bilac</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

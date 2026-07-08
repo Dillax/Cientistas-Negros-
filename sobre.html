@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre o Autor — Cientistas Negros</title>
+<meta name="description" content="Sobre o autor e professor responsável pelo projeto Cientistas Negros.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="logo-olavo-bilac.png" alt="Logomarca do Colégio Estadual Olavo Bilac">
+      Cientistas Negros
+    </a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="cientistas.html">Cientistas</a></li>
+      <li><a href="relacoes.html">Relações Étnico-Raciais</a></li>
+      <li><a class="ativo" href="sobre.html">Sobre o Autor</a></li>
+      <li><a href="cientistas.html#contato">Contato</a></li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  (function () {
+    var botaoMenu = document.getElementById('menu-toggle');
+    var listaNav = document.getElementById('nav-links');
+    if (!botaoMenu || !listaNav) return;
+    botaoMenu.addEventListener('click', function () {
+      var aberto = listaNav.classList.toggle('aberto');
+      botaoMenu.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+    });
+    listaNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        listaNav.classList.remove('aberto');
+        botaoMenu.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
+
+<main>
+  <section class="hero" style="padding-bottom:40px;">
+    <div class="container">
+      <p class="eyebrow">Quem assina este arquivo</p>
+      <h1 style="max-width:20ch;">Sobre o Autor</h1>
+      <p class="lead">Professor, pesquisador e responsável pelo projeto Cientistas Negros.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="autor-wrap">
+        <div class="autor-foto-wrap reveal">
+          <img src="autor-foto.jpg" alt="Retrato do professor Robert, autor do projeto Cientistas Negros">
+        </div>
+
+        <div class="autor-info reveal">
+          <span class="campo">Professor de Física, Matemática, Programação e Robótica — SEED</span>
+          <h2>Robert</h2>
+
+          <ul class="autor-lista">
+            <li>
+              <strong>Mestre em Ensino de Ciências Naturais</strong> — Universidade Tecnológica Federal do Paraná (UTFPR), Programa de Pós-Graduação em Ensino de Ciências Humanas, Sociais e da Natureza (PPGEN).
+            </li>
+            <li>
+              <strong>Especialista em Educação Matemática e Ciências</strong> — Universidade Tecnológica Federal do Paraná (UTFPR).
+            </li>
+            <li>
+              <strong>Licenciatura em Ciências Naturais e Matemática — Física</strong> — Universidade Federal de Mato Grosso (UFMT).
+            </li>
+            <li>
+              Membro do <strong>STEM Education Research Group</strong> da UTFPR, liderado pelo pesquisador Dr. Paulo Sérgio de Camargo Filho, onde contribuiu com pesquisas sobre aplicações no campo da Acústica, investigando Modelagem Matemática e Análise Física Experimental de Modos Vibracionais em Placas Elásticas, com foco na expansão da Teoria de Kirchhoff-Love para Figuras de Chladni em Geometrias Quadradas com Condições de Contorno Reais.
+            </li>
+            <li>
+              Professor de <strong>Física, Matemática, Programação e Robótica</strong> pela SEED.
+            </li>
+            <li>
+              Experiência com <strong>linguagem de programação, Machine Learning e Data Science com Python</strong>.
+            </li>
+          </ul>
+
+          <div class="autor-contato">
+            <a class="btn" href="mailto:srobert@escola.pr.gov.br">srobert@escola.pr.gov.br</a>
+            <a class="btn secundario" href="http://lattes.cnpq.br/6334683551516624" target="_blank" rel="noopener">Currículo Lattes →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>Arquivo educativo · Ciência e memória negra</p>
+    <p class="creditos">Site desenvolvido pelos alunos do 3° A — Olavo Bilac</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
